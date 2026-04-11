@@ -1,0 +1,6 @@
+[build]
+target = "thumbv7em-none-eabihf"
+
+[target.thumbv7em-none-eabihf]
+runner = "./build_and_upload.sh"
+rustflags = ["-C", "link-arg=-Tt4link.x"]

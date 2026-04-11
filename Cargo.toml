@@ -1,0 +1,10 @@
+[package]
+name = "firmware-rs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+imxrt-log = { version = "0.1", default-features = false, features = ["usbd", "log"] }
+log = "0.4"
+teensy4-bsp = { git = "https://github.com/roccoagain/teensy4-rs", branch = "t41-fcb-support", default-features = false, features = ["rt", "t41"] }
+teensy4-panic = { version = "0.2.3", features = ["log"] }

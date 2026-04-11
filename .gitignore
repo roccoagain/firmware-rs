@@ -1,0 +1,7 @@
+/target
+
+*.hex
+*.elf
+*.bin
+*.map
+*.log

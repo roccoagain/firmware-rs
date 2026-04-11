@@ -1,8 +1,8 @@
 #![no_std]
 #![no_main]
 
-#[allow(dead_code)]
-mod reset;
+mod filters;
+mod utils;
 
 use imxrt_log as logging;
 use teensy4_bsp as bsp;
@@ -37,7 +37,10 @@ fn main() -> ! {
     }
 
     log::info!("firmware-rs booted on Teensy 4.1");
-    log::info!("starting blink loop after {} ms USB grace period", STARTUP_GRACE_MS);
+    log::info!(
+        "starting blink loop after {} ms USB grace period",
+        STARTUP_GRACE_MS
+    );
 
     loop {
         blink_count = blink_count.wrapping_add(1);
@@ -57,7 +60,7 @@ fn main() -> ! {
                 delay.block_ms(USB_POLL_INTERVAL_MS);
             }
 
-            reset::reset_teensy();
+            utils::reset_teensy();
         }
     }
 }

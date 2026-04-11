@@ -1,3 +1,5 @@
+pub mod vector_math;
+
 use teensy4_bsp::ral;
 
 const RESET_COOKIE: u32 = 0x0BAD_00F1;

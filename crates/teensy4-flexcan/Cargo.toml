@@ -1,0 +1,9 @@
+[package]
+name = "teensy4-flexcan"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
+imxrt-iomuxc = { version = "0.2", features = ["imxrt1060"] }
+imxrt-ral = { version = "0.5", features = ["imxrt1062"] }

@@ -4,6 +4,7 @@
 mod filters;
 mod utils;
 
+use cortex_m::peripheral::SCB;
 use imxrt_log as logging;
 use teensy4_bsp as bsp;
 use teensy4_flexcan::{Can3, CanMessage, IdType, Mailbox, MailboxMode};
@@ -14,6 +15,7 @@ use bsp::{board, hal::timer::Blocking};
 const USB_POLL_INTERVAL_MS: u32 = 10;
 const STARTUP_GRACE_MS: u32 = 2_000;
 const TX_INTERVAL_MS: u32 = 500;
+const RESET_AFTER_LOOPS: u32 = 20;
 
 #[bsp::rt::entry]
 fn main() -> ! {
@@ -47,9 +49,11 @@ fn main() -> ! {
     log::info!("CAN3 example on pins p31=TX / p30=RX at 500 kbit/s");
 
     let mut counter = 0u8;
+    let mut loops = 0u32;
 
     loop {
         counter = counter.wrapping_add(1);
+        loops += 1;
         led.toggle();
 
         let mut frame = CanMessage {
@@ -68,6 +72,12 @@ fn main() -> ! {
         for _ in 0..(TX_INTERVAL_MS / USB_POLL_INTERVAL_MS) {
             poller.poll();
             delay.block_ms(USB_POLL_INTERVAL_MS);
+        }
+
+        if loops >= RESET_AFTER_LOOPS {
+            log::info!("resetting after {} loops", loops);
+            delay.block_ms(USB_POLL_INTERVAL_MS);
+            SCB::sys_reset();
         }
     }
 }

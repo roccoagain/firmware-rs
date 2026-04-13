@@ -1,9 +1,7 @@
 #![no_std]
 #![no_main]
 
-mod filters;
 mod transmitter;
-mod utils;
 
 use imxrt_log as logging;
 use teensy4_bsp as bsp;

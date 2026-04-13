@@ -19,10 +19,15 @@
 #![no_std]
 #![warn(missing_docs)]
 
+#[cfg(test)]
+extern crate std;
+
 mod controller;
 mod instance;
 mod pins;
 mod registers;
+#[cfg(test)]
+mod tests;
 mod types;
 
 pub use controller::{Can1, Can2, Can3, FlexCan};

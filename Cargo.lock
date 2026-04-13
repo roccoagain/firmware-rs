@@ -101,12 +101,22 @@ name = "firmware-rs"
 version = "0.1.0"
 dependencies = [
  "cortex-m",
+ "flexcan-teensy4",
+ "icm20649",
  "imxrt-log",
  "libm",
  "log",
  "teensy4-bsp",
- "teensy4-flexcan",
  "teensy4-panic",
+]
+
+[[package]]
+name = "flexcan-teensy4"
+version = "0.1.0"
+dependencies = [
+ "cortex-m",
+ "imxrt-iomuxc",
+ "imxrt-ral",
 ]
 
 [[package]]
@@ -195,6 +205,13 @@ name = "gcd"
 version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1d758ba1b47b00caf47f24925c0074ecb20d6dfcffe7f6d53395c0465674841a"
+
+[[package]]
+name = "icm20649"
+version = "0.1.0"
+dependencies = [
+ "embedded-hal 1.0.0",
+]
 
 [[package]]
 name = "imxrt-boot-gen"
@@ -408,15 +425,6 @@ version = "0.4.0"
 source = "git+https://github.com/roccoagain/teensy4-rs?branch=t41-fcb-support#4bacd29506a0862f9a080fc04e55a63eb95ba95b"
 dependencies = [
  "imxrt-boot-gen",
-]
-
-[[package]]
-name = "teensy4-flexcan"
-version = "0.1.0"
-dependencies = [
- "cortex-m",
- "imxrt-iomuxc",
- "imxrt-ral",
 ]
 
 [[package]]

@@ -7,7 +7,7 @@ edition = "2024"
 cortex-m = "0.7"
 libm = "0.2"
 teensy4-bsp = { git = "https://github.com/roccoagain/teensy4-rs", branch = "t41-fcb-support", default-features = false, features = ["rt", "t41"] }
-flexcan-teensy4 = { path = "crates/flexcan-teensy4" }
+teensy4-flexcan = { path = "crates/teensy4-flexcan" }
 icm20649 = { path = "crates/icm20649" }
 teensy4-panic = "0.2.3"
-usb-teensy4 = { path = "crates/usb-teensy4" }
+teensy4-usb = { path = "crates/teensy4-usb" }

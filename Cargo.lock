@@ -95,21 +95,12 @@ name = "firmware-rs"
 version = "0.1.0"
 dependencies = [
  "cortex-m",
- "flexcan-teensy4",
  "icm20649",
  "libm",
  "teensy4-bsp",
+ "teensy4-flexcan",
  "teensy4-panic",
- "usb-teensy4",
-]
-
-[[package]]
-name = "flexcan-teensy4"
-version = "0.1.0"
-dependencies = [
- "cortex-m",
- "imxrt-iomuxc",
- "imxrt-ral",
+ "teensy4-usb",
 ]
 
 [[package]]
@@ -401,6 +392,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "teensy4-flexcan"
+version = "0.1.0"
+dependencies = [
+ "cortex-m",
+ "imxrt-iomuxc",
+ "imxrt-ral",
+]
+
+[[package]]
 name = "teensy4-panic"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -415,6 +415,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "teensy4-usb"
+version = "0.1.0"
+dependencies = [
+ "teensy4-bsp",
+ "usb-device",
+ "usbd-serial",
+]
+
+[[package]]
 name = "unicode-ident"
 version = "1.0.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -425,15 +434,6 @@ name = "usb-device"
 version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1f6cc3adc849b5292b4075fc0d5fdcf2f24866e88e336dd27a8943090a520508"
-
-[[package]]
-name = "usb-teensy4"
-version = "0.1.0"
-dependencies = [
- "teensy4-bsp",
- "usb-device",
- "usbd-serial",
-]
 
 [[package]]
 name = "usbd-serial"

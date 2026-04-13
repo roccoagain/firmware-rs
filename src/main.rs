@@ -6,7 +6,7 @@ mod transmitter;
 use core::fmt::Write;
 use teensy4_bsp as bsp;
 use teensy4_panic as _;
-use usb_teensy4::{UsbTeensy4, usb_writeln};
+use teensy4_usb::{UsbTeensy4, usb_writeln};
 
 use bsp::{
     board,

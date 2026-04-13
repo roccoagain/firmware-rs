@@ -11,7 +11,7 @@
 //! Typical usage looks like this:
 //!
 //! ```ignore
-//! use flexcan_teensy4::{Can1, CanMessage, Clock, IdType, Mailbox, MailboxMode};
+//! use teensy4_flexcan::{Can1, CanMessage, Clock, IdType, Mailbox, MailboxMode};
 //! use teensy4_bsp as bsp;
 //!
 //! let instances = bsp::board::instances();
@@ -37,7 +37,7 @@
 //!     let _id = received.id;
 //!     let _payload = &received.buf[..received.len as usize];
 //! }
-//! # Ok::<(), flexcan_teensy4::Error>(())
+//! # Ok::<(), teensy4_flexcan::Error>(())
 //! ```
 //!
 //! This crate is `#![no_std]` and is intended for bare-metal Teensy 4 targets.
